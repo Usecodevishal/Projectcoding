@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        #top{
+            width:100%;
+            height:50px;
+            display:flex;
+            justify-content:center;
+            align-items: center;
+        }
+        #top>img{
+            width:125px;
+            height:30px;
+        }
+        #container{
+            width:450px;
+            height:500px;
+            margin:auto;
+            padding-left:15px;
+            
+        }
+        #container>h1{
+            color:#242c33;
+        }
+        #height0{
+            width:100%;
+            height:1px;
+            background-color:teal;
+        }
+        form>input{
+            width:400px;
+            height:48px;
+            border-radius:10px;
+            margin-top:10px;
+            font-size:large;
+            border-width:thin;
+            border-color:#848f99;
+            padding-left:10px;
+
+        }
+        #sub_btn{
+            width:90%;
+            height:50px;
+            background-color:#0a438b;
+            color:white;
+            margin-top:100px;
+            margin-right:17px;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <img src="https://www.travelocity.com/_dms/interstitial/logo.svg?locale=en_US&siteid=80001" alt="site Logo"/>
+    </div>
+    <div id="height0"></div>
+    <div id="container">
+        <h1>Create an account</h1>
+        <form>
+            <input type="eamil" id="email" placeholder="Email Address"/>
+            <input type="text" id="firstName" placeholder="First name"/>
+            <input type="text" id="lastName" placeholder="Last name"/>
+            <input type="password" id="pass" placeholder="Password"/>
+            <input id="sub_btn" type="submit"/>
+        </form>
+        <h4>Already have an account? <span><a href="sign in page.html">Sign in</a></span></h4>
+    </div>
+</body>
+</html>
+
+<script>
+    document.querySelector("form").addEventListener("submit",myFun)
+
+    var usercredentials=JSON.parse(localStorage.getItem("userData")) || [];
+    function myFun(){
+        event.preventDefault()
+
+        var all_data_user={
+            Email:document.querySelector("#email").value,
+            FirstName:document.querySelector("#firstName").value,
+            LastName:document.querySelector("#lastName").value,
+            Password:document.querySelector("#pass").value,
+        };
+        console.log(all_data_user);
+        usercredentials.push(all_data_user);
+        localStorage.setItem("userData",JSON.stringify(usercredentials));
+        console.log(usercredentials)
+        alert( all_data_user.FirstName+" "+"you have created your account")
+    }
+
+
+</script>

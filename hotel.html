@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body{
+            background-color: #f0f3f5;
+        }
+        #container{
+            display:grid;
+            grid-template-columns: repeat(4,1fr);
+            gap:10px;
+        }
+        #percentbox{
+            background-color: #1f7d57;
+            color:white;
+            border-radius:5px;
+            float:right;
+        }
+        #hotel_single_box{
+            background-color:white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+    var Hotels_data=[
+
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/2000000/1660000/1650700/1650669/e1dbe447_b.jpg",
+        hotel_name:"The Stand-Boutique Resort",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$111",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/1000000/900000/898500/898447/08400836_b.jpg",
+        hotel_name:"Hotel Republic San Diego",
+        rating:4.5/5,
+        discount:"30%off",
+        prize:"$223",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/1000000/10000/3100/3007/e08a2a42_b.jpg",
+        hotel_name:"Rancho Barnardo Inn",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$285",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/1000000/30000/24700/24669/7b1929d9_b.jpg",
+        hotel_name:"Catamaran Resort and Spa",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$360",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/2000000/1660000/1650700/1650669/e1dbe447_b.jpg",
+        hotel_name:"The Stand-Boutique Resort",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$111",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/1000000/880000/873100/873054/639c2035_b.jpg",
+        hotel_name:"Landmark",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$232",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/16000000/15230000/15228300/15228207/22e3f779_b.jpg",
+        hotel_name:"Residence Inn",
+        rating:4.0/5,
+        discount:"20%off",
+        prize:"$179",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/2000000/1660000/1650700/1650669/e1dbe447_b.jpg",
+        hotel_name:"The Stand-Boutique Resort",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$111",
+        strikedOff:"$159",
+        for:"per night",
+        },
+        {
+            hotel_img_url:"https://images.trvl-media.com/hotels/2000000/1660000/1650700/1650669/e1dbe447_b.jpg",
+        hotel_name:"The Stand-Boutique Resort",
+        rating:4.0/5,
+        discount:"30%off",
+        prize:"$111",
+        strikedOff:"$159",
+        for:"per night",
+        }
+    ];
+    Hotels_data.map(function(elem){
+        var box=document.createElement("div")
+        box.setAttribute("id","hotel_single_box")
+
+        var img=document.createElement("img")
+        img.src=elem.hotel_img_url
+        var name=document.createElement("h2")
+        name.innerText=elem.hotel_name
+
+        var Rate=document.createElement("p")
+        Rate.innerText=elem.rating
+        var DiscountBox=document.createElement("div")
+        DiscountBox.setAttribute("id","percentbox")
+
+        var Discount=document.createElement("p")
+        Discount.innerText=elem.discount
+
+        DiscountBox.append(Discount)
+
+        var hotelPrize=document.createElement("h2")
+        hotelPrize.innerText=elem.prize
+        
+        var strikedRate=document.createElement("s")
+        strikedRate.innerText=elem.strikedOff
+
+        box.append(img,name,Rate,DiscountBox,hotelPrize,strikedRate)
+
+        document.querySelector("#container").append(box)
+    })
+</script>

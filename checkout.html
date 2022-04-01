@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family:Arial, Helvetica, sans-serif
+
+        }
+        body{
+            background-color: #ededed;
+        }
+        #checkout_nav{
+            width:100%;
+            height:100px;
+            background-color:#0a438b;
+            display:flex;
+            justify-content:space-around;
+            margin-top:-10px;
+        }
+        #checkout_nav>div{
+            width:100px;
+            height:90%;
+            margin:auto;
+            color:white;
+        }
+        #checkout_nav>div:nth-child(1){
+            margin-top:15px;
+        }
+        #checkout_user-details{
+            width:700px;
+            height:300px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color: white;
+            margin-top:50px;
+            margin-left:100px;
+        }
+        #form_box{
+            width:90%;
+            height:90%;
+            margin:auto;
+            font-size:16px;
+            line-height:18px;
+            color:#616161;
+            font-weight:700px;
+            font-style: normal;
+        }
+        #payment_details_box{
+            width:700px;
+            height:800px;
+            margin-left:100px;
+            background-color: white;
+            margin-top:10px;
+        }
+        #credit_card_logo{
+            display:flex;
+            width:100%;
+            height:40px;
+            padding-left:20px;
+            border:1px solid brown;
+           
+        }
+        #payment_details_box>div:nth-child(2){
+            width:90%;
+            height:90%;
+            border:1px solid black;
+
+        }
+        #credit_card_logo>div{
+            width:30px;
+            height:90%;
+            margin-left:10px;
+            padding-left:20px;
+        }
+        form,select{
+            color:#616161;
+        }
+        input{
+            border-radius: 2px;
+            border-width:thin;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="checkout_nav">
+        <div>
+            <a target="_blank"href="index.html"><img src="https://www.travelocity.com/_dms/header/logo.svg?locale=en_US&siteid=80001" alt=""/></a>
+        </div>
+        <div>
+            <a target="_blank" href="sign in page.html"><p style="color:white;"><b>Sign in</b></p></a>
+        </div>
+    </div>
+    <div id="checkout_user-details">
+        <div id="form_box">
+            <form>
+                <lable for="first_name"><b>First Name</b></lable><br/>
+                <input type="text" id="first_name" placeholder="e.g(Vishal)"/><br/><br/>
+                <lable for="last_name"><b>Last Name</b></lable><br/>
+                <input type="text" id="last_name" placeholder="e.g(Bharti)"/><br/><br/>
+                <label for="mobile_number"><b>Mobile Number</b></label><br/>
+                <select>
+                    <option value="india+91">India+91</option>
+                    <option value="USA+1">USA+1</option>
+                    <option value="japan+81">Japan+81</option>
+                    <option value="Afganisthan+93">AFG+93</option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+                <input type="number" id="mobile_number" placeholder=""/>
+            </form>
+        </div>
+    </div>
+    <div id="payment_details_box">
+        <div id="credit_card_logo">
+            <div>
+                <img src="https://a.travel-assets.com/dms-svg/payments/cards-cc_master_card.svg" alt=""/>
+            </div>
+            <div>
+                <img src="https://a.travel-assets.com/dms-svg/payments/cards-cc_visa.svg" alt=""/>
+            </div>
+        </div>
+        <div>
+            <form>
+                <label for="name_on_card"><b>Name on card</b></label><br/>
+                <input id="name_on_card" type="text" /><br/><br/>
+                <label for="debit_no"><b>Debit card / credit card Number</b></label><br/>
+                <input id="debit_no" type="number"/><br/><br/>
+                <label for="name_on_card"><b>Expiration date</b></label><br/>
+                <select>
+                    <option value="Month">Month</option>
+                    <option value="01-Jan">01-Jan</option>
+                    <option value="02-Feb">02-Feb</option>
+                    <option value="03-Mar">03-Mar</option>
+                    <option value="04-Apr">04-Apr</option>
+                    <option value="05-May">05-May</option>
+                    <option value="06-Jun">06-Jun</option>
+                    <option value="07-Jul">07-Jul</option>
+                    <option value="08-Aug">08-Aug</option>
+                    <option value="09-Sep">09-Sep</option>
+                    <option value="10-Oct">10-Oct</option>
+                    <option value="11-Nov">11-Nov</option>
+                    <option value="12-Dec">12-Dec</option>
+                </select><br/><br/>
+                <label for="security_code"><b>Security code</b></label><br/>
+                <input id="security_code" type="number"/><br/><br/>
+                <hr/><br/><br/>
+                <label></label>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
