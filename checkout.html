@@ -40,6 +40,17 @@
             margin-top:50px;
             margin-left:100px;
         }
+        #trip_total_box{
+            width: 500px;
+            height: 300px;
+            background-color: white;
+            dispaly:flex;
+            justify-content: space-around;
+            float:right;
+            color:rgb(35, 35, 168)35, 35, 168)35, 35, 168);
+            margin-top:50px;
+            margin-right:20px;
+        }
         #form_box{
             width:90%;
             height:90%;
@@ -62,13 +73,12 @@
             width:100%;
             height:40px;
             padding-left:20px;
-            border:1px solid brown;
            
         }
         #payment_details_box>div:nth-child(2){
             width:90%;
             height:90%;
-            border:1px solid black;
+            margin:auto;
 
         }
         #credit_card_logo>div{
@@ -95,6 +105,11 @@
         <div>
             <a target="_blank" href="sign in page.html"><p style="color:white;"><b>Sign in</b></p></a>
         </div>
+    </div>
+    <div id="trip_total_box">
+        <div><h3>Your grand total is</h3></div>
+        <div><h2></h2></div>
+        <div style="color: green;"><h1>!!Happy Journey!!</h1></div>
     </div>
     <div id="checkout_user-details">
         <div id="form_box">
@@ -160,3 +175,9 @@
     </div>
 </body>
 </html>
+
+<script>
+    var totalprize=localStorage.getItem("Total");
+     
+     document.querySelector("h2").innerText=totalprize;
+</script>

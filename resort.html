@@ -94,14 +94,18 @@
             display:grid;
             grid-template-columns: repeat(4,1fr);
             gap:10px;
+            margin-top: 10px;
         }
         #resort_single_box{
             background-color:white;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            padding:5px;
+            box-sizing: border-box;
         }
-        img{
+        #resort_img{
             border-radius: 10px 10px 0px 0px;
+            margin-top:-5px;
         }
         p{
             color:#6d7072;
@@ -144,7 +148,7 @@
             color:#242c33;
             margin-left:20px;
         }
-        img{
+        #footer_img{
             margin-top:25px;
         }
         dt{
@@ -180,13 +184,13 @@
             <div><a>Support</a></div>
             <div><a>Trips</a></div>
             <div><a target="_blank" href="sign in page.html"><p style="color:white;">Sign in</p></a></div>
+            <div><a href="mylist.html"><p style="color:white;">My List</p></a></div>
         </div>
     </div>
-    <button><a href="mylist.html">Go To My List</a></button>
     <div id="container"></div>
     <div id="footer_box">
         <div>
-           <img src="https://a.travel-assets.com/globalcontrols-service/content/f285fb631b0a976202ef57611c7050e9ef5ca51a/images/EG_Wordmark_blue_RGB.svg"/>
+           <img id="footer_img"src="https://a.travel-assets.com/globalcontrols-service/content/f285fb631b0a976202ef57611c7050e9ef5ca51a/images/EG_Wordmark_blue_RGB.svg"/>
         </div>
         <div>
             <dl>
@@ -242,7 +246,7 @@
 </html>
 
 <script>
-     var Listdata = [];
+     var Listdata = JSON.parse(localStorage.getItem("resortlist")) || [];
     var resort_data=[
        
         {
@@ -251,40 +255,40 @@
             rating:"3.5/5",
             discount:"Member Discount avaliable",
             fc:"Free Cancellation",
-            prize:"$178",
-            strikedoffprize:"$445",
+            prize:178,
+            strikedoffprize:445,
             pn:"per night",
         
         },
         {
-            resort_img_url:"https://images.trvl-media.com/hotels/1000000/10000/8300/8238/873de166_b.jpg",
-            resort_name:"Oasis Palm All Inclusive",
+            resort_img_url:"https://images.trvl-media.com/hotels/1000000/560000/554800/554709/5172c8e9_b.jpg",
+            resort_name:"Deja resort all inclusive",
             rating:"3.5/5",
             Discount:"Member Discount avaliable",
             fc:"Free Cancellation",
-            prize:"$178",
-            strikedoffprize:"$445",
+            prize:145,
+            strikedoffprize:455,
             pn:"per night",
     
         },
         {
-            resort_img_url:"https://images.trvl-media.com/hotels/1000000/10000/8300/8238/873de166_b.jpg",
-            resort_name:"Oasis Palm All Inclusive",
+            resort_img_url:"https://images.trvl-media.com/hotels/1000000/20000/16400/16380/49016e12_b.jpg",
+            resort_name:"Hacenda hotel",
             rating:"3.5/5",
             discount:"Member Discount avaliable",
             fc:"Free Cancellation",
-            prize:"$178",
-            strikedoffprize:"$445",
+            prize:147,
+            strikedoffprize:445,
             pn:"per night",
         },
         {
-            resort_img_url:"https://images.trvl-media.com/hotels/1000000/10000/8300/8238/873de166_b.jpg",
-            resort_name:"Oasis Palm All Inclusive",
+            resort_img_url:"https://images.trvl-media.com/hotels/2000000/1550000/1542300/1542278/d1763edb_b.jpg",
+            resort_name:"Riu Vallarta",
             rating:"3.5/5",
             discount:"Member Discount avaliable",
             fc:"Free Cancellation",
-            prize:"$178",
-            strikedoffprize:"$445",
+            prize:176,
+            strikedoffprize:352,
             pn:"per night",
         },
 
@@ -296,6 +300,7 @@
         box.setAttribute("id","resort_single_box")
 
         var Resort_img=document.createElement("img");
+        Resort_img.setAttribute("id","resort_img")
         Resort_img.src=elem.resort_img_url
 
         var Resort_name=document.createElement("h3");
@@ -347,7 +352,7 @@
             //console.log(elem);
             Listdata.push(elem)
             console.log(Listdata);
-            localStorage.setItem("listdata",JSON.stringify(Listdata))
+            localStorage.setItem("resortlist",JSON.stringify(Listdata))
            
     }
 

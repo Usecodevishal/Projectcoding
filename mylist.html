@@ -5,14 +5,145 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        body{
+            background-color: #f0f3f5;
+        }
+        #checkout_nav{
+        width:100%;
+        height:100px;
+        background-color:#0a438b;
+        display:flex;
+        justify-content:space-around;
+        margin-top:-10px;
+    }
+    #checkout_nav>div{
+        width:100px;
+        height:90%;
+        margin:auto;
+        color:white;
+    }
+    #checkout_nav>div:nth-child(1){
+        margin-top:15px;
+    }
+        #container{
+            width:400px;
+            margin:auto;
+        }
+         #resort_single_box{
+            background-color:white;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+        #resort_img{
+            border-radius: 10px 10px 0px 0px;
+        }
+        p{
+            color:#6d7072;
+            font-weight:bold;
+        }
+        #percentBox{
+            background-color: #1f7d57;
+            color:white;
+            border-radius:5px;
+            float:right:
+        }
+        #text{
+            font-weight:bold;
+            color:rgb(21, 145, 21);
+            float:right;
+        }
+        #remove_btn{
+            float:right;
+            background-color:rgb(95, 83, 83);
+            color:white;
+            border:none;
+            font-size:16px;
+        }
+    </style>
 </head>
 <body>
-    
+    <div id="checkout_nav">
+        <div>
+            <a target="_blank"href="index.html"><img src="https://www.travelocity.com/_dms/header/logo.svg?locale=en_US&siteid=80001" alt=""/></a>
+        </div>
+        <div>
+            <a target="_blank" href="sign in page.html"><p style="color:white;"><b>Sign in</b></p></a>
+        </div>
+    </div>
+    <p></p>
+    <button><a href="checkout.html"><b>Check out</b></a></button>
+    <div id="container"></div>
 </body>
 </html>
 
 <script>
-    var list_data=JSON.parse(localStorage.getItem("listdata"))
+    var my_hotel_list=JSON.parse(localStorage.getItem("Favhotel"))
+    var my_resort_list=JSON.parse(localStorage.getItem("resortlist"))
+    console.log(my_resort_list);
 
-    console.log(list_data)
+    var total=my_resort_list.reduce(function(sum,elem,index,arr){
+        return sum+elem.prize
+    },0)
+    
+    console.log(total);
+    document.querySelector("p").innerText=`Total is Rs ${total}`
+
+    my_resort_list.map(function(elem,index){
+        var box=document.createElement("div")
+        box.setAttribute("id","resort_single_box")
+
+        var Resort_img=document.createElement("img");
+        Resort_img.setAttribute("id","resort_img")
+        Resort_img.src=elem.resort_img_url
+
+        var Resort_name=document.createElement("h3");
+        Resort_name.innerText=elem.resort_name
+
+        var Rate=document.createElement("p")
+        Rate.innerText=elem.rating
+        
+        var DiscountBox=document.createElement("div");
+        DiscountBox.setAttribute("id","percentBox")
+
+        var Discount=document.createElement("p1")
+        Discount.innerText=elem.discount
+
+        DiscountBox.append(Discount)
+
+        var ResortPrize=document.createElement("h2");
+        ResortPrize.innerText=elem.prize
+
+        var Pn=document.createElement("p");
+        Pn.innerText=elem.pn
+        
+        var StrikedPrize=document.createElement("s");
+        StrikedPrize.innerText=elem.strikedoffprize
+
+        var remove=document.createElement("button")
+        remove.setAttribute("id","remove_btn")
+        remove.innerText="Remove"
+
+        remove.addEventListener("click",function(){
+            removeFan(index)
+        })
+         
+        box.append(Resort_img,Resort_name,Rate,DiscountBox,
+        ResortPrize,Pn,StrikedPrize,remove)
+        document.querySelector("#container").append(box)
+        });
+
+        function removeFan(index){
+            my_resort_list.splice(index,1)
+            console.log(my_resort_list)
+            localStorage.setItem("resortlist",JSON.stringify(my_resort_list))
+            window.location.reload()
+
+        }
+        localStorage.setItem("Total",total)
+
+       
 </script>
